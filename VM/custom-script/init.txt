@@ -1,0 +1,19 @@
+#cloud-config
+package_upgrade: false
+packages:
+  - httpd
+write files:
+   - owner: root:root
+     path: /var/www/html/index.html
+     content: |
+       <h1>Upskill with NCPL - APP-1</h1>
+   - owner: root:root
+     path: /var/www/html/app1/index.html
+     content: |APP-1
+        <|DOCTYPE html> <html> <body style="background-color:rgb(250, 210, 210);"> <h>Upskill with NCPL - APP-1</H1> <p>Terraform Demo</p> <p>Application
+Version: V1</p> </body></html>
+runcmd:
+   - sudo systemct1 start httpd
+   - sudo systemct1 enable httpd
+   - sudo systemct1 stop firewalld
+   - sudo mkdir /var/www/html1/app1
